@@ -12,12 +12,13 @@ $(function() {
 		  		method: 'GET',
 				success: showCountriesList
 		});
-	}
-		
+	};
+	
 	function showCountriesList(resp) {
 		countriesList.empty();
+		if (!resp.length) return;
 		resp.forEach(function(item) {
 			$('<li>').text(item.name + ' - ' + item.capital + ' - Population: ' + item.population).appendTo(countriesList);
 		});
-	}
+	};
 });
